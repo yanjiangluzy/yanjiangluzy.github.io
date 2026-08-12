@@ -1,0 +1,9 @@
+<header class="site-header">
+  <a class="brand" href="<%- url_for('/') %>"><span><%= config.title || 'Paperlike' %></span><small><%= config.subtitle || 'Notes & ideas' %></small></a>
+  <nav class="main-nav" aria-label="主导航">
+    <% Object.keys(theme.menu || {}).forEach(function (label) { %>
+      <a href="<%- url_for(theme.menu[label]) %>"><%= label %></a>
+    <% }) %>
+    <button class="icon-button" type="button" data-theme-toggle aria-label="切换主题" title="切换主题">◐</button>
+  </nav>
+</header>

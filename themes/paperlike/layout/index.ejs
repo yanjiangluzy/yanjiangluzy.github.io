@@ -1,0 +1,16 @@
+<section class="home-intro">
+  <p class="eyebrow">PERSONAL NOTES</p>
+  <h1><%= config.title %></h1>
+  <p class="intro-copy"><%= theme.description || config.description || '记录技术、生活与持续探索。' %></p>
+</section>
+<section class="post-list" aria-label="文章列表">
+  <% page.posts.each(function(post){ %>
+    <article class="post-card">
+      <div class="post-meta"><time datetime="<%= post.date.toISOString() %>"><%= post.date.format('YYYY年MM月DD日') %></time><% if (post.categories && post.categories.length) { %><span>·</span><span><%= post.categories.first().name %></span><% } %></div>
+      <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+      <p class="post-excerpt"><%- post.excerpt || post.content.substring(0, 180) %><% if (!post.excerpt) { %>…<% } %></p>
+      <a class="read-more" href="<%- url_for(post.path) %>">继续阅读 <span aria-hidden="true">↗</span></a>
+    </article>
+  <% }) %>
+</section>
+<% if (page.total > 1) { %><nav class="pagination"><% if (page.prev) { %><a href="<%- url_for(page.prev_link) %>">← 更新的文章</a><% } %><% if (page.next) { %><a href="<%- url_for(page.next_link) %>">更早的文章 →</a><% } %></nav><% } %>

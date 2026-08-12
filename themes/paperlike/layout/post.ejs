@@ -1,0 +1,7 @@
+<article class="reading-layout">
+  <div class="reading-main">
+    <header class="reading-header"><p class="eyebrow">ARTICLE</p><h1><%= page.title %></h1><div class="post-meta"><time datetime="<%= page.date.toISOString() %>"><%= page.date.format('YYYY年MM月DD日') %></time><span>·</span><span><%= Math.max(1, Math.ceil((page.content || '').replace(/<[^>]+>/g, '').length / 400)) %> 分钟阅读</span></div><% if (page.tags && page.tags.length) { %><div class="tag-row"><% page.tags.each(function(tag){ %><a href="<%- url_for(tag.path) %>"># <%= tag.name %></a><% }) %></div><% } %></header>
+    <div class="article-content"><%- page.content %></div>
+  </div>
+  <aside class="toc" aria-label="文章目录"><p>文章阅读</p><span>沉下心来，慢慢读。</span></aside>
+</article>

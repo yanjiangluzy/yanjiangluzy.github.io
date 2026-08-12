@@ -1,0 +1,11 @@
+menu:
+  文章: /
+  标签: /tags/
+  归档: /archives/
+  关于: /about/
+
+social:
+  github: https://github.com/yanjiangluzy
+
+description: 记录技术、生活与持续探索。
+accent: '#9a5f48'
